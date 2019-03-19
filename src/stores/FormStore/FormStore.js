@@ -57,6 +57,11 @@ class FormStore {
     }
 
     @action
+    clearOutput() {
+        this.output = '';
+    }
+
+    @action
     calculate() {
         const inputLine = this.input.split(/[\s,]+/);
         const command = inputLine[0];
@@ -69,7 +74,11 @@ class FormStore {
                 const y = parseInt(inputLine[2], 10);
                 const f = inputLine[3];
                 const facing = this.orientation[f];
-                if (x > -1 && x < 5 && y > -1 && y < 5 && facing) {
+                if (x >= this.table.tableMin_x
+                    && x < this.table.tableMax_x
+                    && y >= this.table.tableMin_y
+                    && y < this.table.tableMax_y
+                    && facing) {
                     this.location = { x, y };
                     this.facing = facing;
                 }
@@ -89,12 +98,16 @@ class FormStore {
                     const moveY = this.facing.y;
                     const nextX = this.location.x + moveX;
                     const nextY = this.location.y + moveY;
-                    if (nextX > -1 && nextX < 5 && nextY > -1 && nextY < 5) {
+                    if (nextX >= this.table.tableMin_x
+                        && nextX < this.table.tableMax_x
+                        && nextY >= this.table.tableMin_y
+                        && nextY < this.table.tableMax_y) {
+
                         this.location = { x: nextX, y: nextY };
                     }
                     else {
                         this.output = 'Out of border.';
-                        return;
+                        break;
                     }
                 }
                 else if (inputLine[i] === 'LEFT') {
