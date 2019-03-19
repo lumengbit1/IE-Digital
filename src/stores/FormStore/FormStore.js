@@ -37,21 +37,38 @@ class FormStore {
 
 
     @action
-    updateProperty (value) {
+    updateProperty(value) {
         this.input = value.toUpperCase();
     }
 
     @action
-    calculate () {
-        // const inputLine = this.input.split(/[\s,]+/);
+    calculate() {
+        const inputLine = this.input.split(/[\s,]+/);
+        let command = inputLine[0];
+        if (command === 'PLACE') {
+            if (inputLine.length >= 4) {
+                const x = parseInt(inputLine[1], 10);
+                const y = parseInt(inputLine[2], 10);
+                const f = inputLine[3];
+                const facing = this.orientation[f];
+                if (x > -1 && x < 5 && y > -1 && y < 5 && facing) {
+                    this.location = { x, y };
+                    this.facing = facing;
+                }
+                else {
+                    this.output = 'Out of border.';
+                }
+            }
+
+
+
+        }
+        else {
+            this.output = 'Pleas type in "PLACE" first.';
+        }
+
 
     }
-    // else {
-    //     this.output = 'Pleas type in "PLACE" first.';
-    // }
-
-
-}
 }
 
 export default FormStore;
