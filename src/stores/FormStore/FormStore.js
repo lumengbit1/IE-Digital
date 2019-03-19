@@ -61,7 +61,38 @@ class FormStore {
             }
 
 
-
+            if (command === 'MOVE') {
+                const moveX = this.facing.x;
+                const moveY = this.facing.y;
+                // Make sure the robot won't fall off the table
+                const nextX = this.location.x + moveX;
+                const nextY = this.location.y + moveY;
+                if (nextX > -1 && nextX < 5 && nextY > -1 && nextY < 5) {
+                    this.location = { x: nextX, y: nextY };
+                }
+                else {
+                    this.output = 'Out of border.';
+                }
+            }
+            else if (command === 'LEFT') {
+                const x = this.facing.x;
+                const y = this.facing.y;
+                this.facing = { x: -y, y: x };
+            }
+            else if (command === 'RIGHT') {
+                const x = this.facing.x;
+                const y = this.facing.y;
+                this.facing = { x: y, y: -x };
+            }
+            else if (command === 'REPORT') {
+                const location = this.location;
+                let report = `Output: ${location.x},${location.y},${
+                    this.direction.x[this.facing.x.toString()].y[
+                    this.facing.y.toString()
+                    ]
+                    }`;
+                this.output = report;
+            }
         }
         else {
             this.output = 'Pleas type in "PLACE" first.';
