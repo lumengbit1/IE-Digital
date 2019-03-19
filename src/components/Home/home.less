@@ -1,26 +1,31 @@
-@borderstyle: 1px solid #000;
 .homePage {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
     height: 100vh;
-    margin-right: 10px;
-    padding-top: 5%;
-    border: @borderstyle;
-
-    .title {
-        font-size: 30px;
-        font-weight: bold;
-        margin: 10px;
-    }
     .block {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
         border: 1px dashed #000;
         border-radius: 10px;
         padding: 20px;
         background-color: #fafbfa;
-        min-width: 225px;
-        min-height: 205px;
-    }
-    .input {
-        overflow: visible;
+        min-width: 300px;
+        min-height: 300px;
+        margin-top: 50px;
+        .input {
+            overflow: visible;
+            width: 100%;
+            height: 100%;
+        }
+        .button {
+            display: flex;
+            button {
+                width: 100px;
+                margin: 20px;
+            }
+        }
     }
 }

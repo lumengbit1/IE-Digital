@@ -11,24 +11,23 @@ function Home({ rootStore }) {
     };
 
     const btnClick = () => {
-
         setValue('');
         rootStore.formStore.clearOutput();
     };
     const [value, setValue] = useState();
     return (
-        <div styleName='homePage'>
-            <div>
-                <div styleName='block'>
-                    <textarea
-                        rows='10'
-                        cols='30'
-                        name='position'
-                        styleName='input'
-                        onChange={updateProperty}
-                        value={value}
-                    />
-                    <p>{rootStore.formStore.output}</p>
+        <div styleName="homePage">
+            <div styleName="block">
+                <textarea
+                    rows="10"
+                    cols="30"
+                    name="position"
+                    styleName="input"
+                    onChange={updateProperty}
+                    value={value}
+                />
+                <p>{rootStore.formStore.output}</p>
+                <div styleName="button">
                     <button onClick={() => rootStore.formStore.calculate()}>Start</button>
                     <button onClick={() => btnClick()}>Reset</button>
                 </div>
