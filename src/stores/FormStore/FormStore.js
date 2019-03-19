@@ -37,69 +37,21 @@ class FormStore {
 
 
     @action
-    updateProperty(value) {
+    updateProperty (value) {
         this.input = value.toUpperCase();
     }
 
     @action
-    calculate() {
-        const inputLine = this.input.split(/[\s,]+/);
-        let command = inputLine[0];
-        if (command === 'PLACE') {
-            if (inputLine.length >= 4) {
-                const x = parseInt(inputLine[1], 10);
-                const y = parseInt(inputLine[2], 10);
-                const f = inputLine[3];
-                const facing = this.orientation[f];
-                if (x > -1 && x < 5 && y > -1 && y < 5 && facing) {
-                    this.location = { x, y };
-                    this.facing = facing;
-                }
-                else {
-                    this.output = 'Out of border.';
-                }
-            }
-
-
-            if (command === 'MOVE') {
-                const moveX = this.facing.x;
-                const moveY = this.facing.y;
-                // Make sure the robot won't fall off the table
-                const nextX = this.location.x + moveX;
-                const nextY = this.location.y + moveY;
-                if (nextX > -1 && nextX < 5 && nextY > -1 && nextY < 5) {
-                    this.location = { x: nextX, y: nextY };
-                }
-                else {
-                    this.output = 'Out of border.';
-                }
-            }
-            else if (command === 'LEFT') {
-                const x = this.facing.x;
-                const y = this.facing.y;
-                this.facing = { x: -y, y: x };
-            }
-            else if (command === 'RIGHT') {
-                const x = this.facing.x;
-                const y = this.facing.y;
-                this.facing = { x: y, y: -x };
-            }
-            else if (command === 'REPORT') {
-                const location = this.location;
-                let report = `Output: ${location.x},${location.y},${
-                    this.direction.x[this.facing.x.toString()].y[
-                    this.facing.y.toString()
-                    ]
-                    }`;
-                this.output = report;
-            }
-        }
-        else {
-            this.output = 'Pleas type in "PLACE" first.';
-        }
-
+    calculate () {
+        // const inputLine = this.input.split(/[\s,]+/);
 
     }
+    // else {
+    //     this.output = 'Pleas type in "PLACE" first.';
+    // }
+
+
+}
 }
 
 export default FormStore;
