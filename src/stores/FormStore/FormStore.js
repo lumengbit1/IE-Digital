@@ -108,7 +108,7 @@ class FormStore {
                     }
                     else {
                         this.output = 'Out of border.';
-                        break;
+                        return;
                     }
                 }
                 else if (inputLine[i] === 'LEFT') {
@@ -132,11 +132,11 @@ class FormStore {
                 }
                 else {
                     this.output = 'Please type in corrent command.';
-                    break;
+                    return;
                 }
                 if (i === inputLine.length - 1 && report_num === 0) {
                     this.output = 'Please type in REPORT.';
-                    break;
+                    return;
                 }
             }
         }
