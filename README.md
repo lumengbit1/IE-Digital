@@ -1,4 +1,4 @@
-# REA Group Code Challenge
+# IE Digital Code Challenge
 
 ## Introdaction
 
@@ -6,7 +6,6 @@
 -   The Project is created by Create-React-App
 -   Adopting Mobx framework to manage state
 -   Adopting CSS Module
--   Considering the real situation, using lazy loading to load the property information to optimize UE
 
 ## Environment
 
@@ -33,8 +32,6 @@
  ┃ ┣ 📜webpack.config.js
  ┃ ┗ 📜webpackDevServer.config.js
  ┣ 📂public
- ┃ ┣ 📂test_data
- ┃ ┃ ┗ 📜data.json
  ┃ ┗ 📜index.html
  ┣ 📂scripts
  ┃ ┣ 📜build.js
@@ -45,12 +42,6 @@
  ┃ ┃ ┣ 📂Home
  ┃ ┃ ┃ ┣ 📜home.less
  ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┣ 📂Property
- ┃ ┃ ┃ ┣ 📜index.js
- ┃ ┃ ┃ ┗ 📜property.less
- ┃ ┃ ┗ 📂PropertyList
- ┃ ┃ ┃ ┣ 📜index.js
- ┃ ┃ ┃ ┗ 📜propertyList.less
  ┃ ┣ 📂router
  ┃ ┃ ┗ 📜Routers.js
  ┃ ┣ 📂stores
@@ -60,7 +51,7 @@
  ┃ ┣ 📂test
  ┃ ┃ ┣ 📜App.test.js
  ┃ ┃ ┣ 📜Home.test.js
- ┃ ┃ ┣ 📜PropertyList.test.js
+ ┃ ┃ ┣ 📜FormStore.test.js
  ┃ ┃ ┗ 📜Router.test.js
  ┃ ┣ 📜App.js
  ┃ ┗ 📜index.js
@@ -71,29 +62,14 @@
  ┗ 📜README.md
 ```
 
-## Issues
-
-The Logo's hyperlink in the mock data have some problems, couldn't get logo images from the link.
-
 ## Change Log
 
 ### Testing
 
--   Add Card Component Test
+-   Add FormStore Store Test
 -   Add Home Component Test
 -   Add Router file Test
-
-### Property Component
-
--   Add Layout
--   Create Component
-
-### Card Component
-
--   Fix get data bug
--   Add Layout
--   Add and adjust function
--   Create Component
+-   Add App file Test
 
 ### Home Component
 
