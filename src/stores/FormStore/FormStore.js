@@ -93,6 +93,7 @@ class FormStore {
             }
 
             for (let i = 4; i < inputLine.length; i++) {
+                let report_num = 0;
                 if (inputLine[i] === 'MOVE') {
                     const moveX = this.facing.x;
                     const moveY = this.facing.y;
@@ -127,6 +128,15 @@ class FormStore {
                         ]
                         }`;
                     this.output = report;
+                    report_num++;
+                }
+                else {
+                    this.output = 'Please type in corrent command.';
+                    break;
+                }
+                if (i === inputLine.length - 1 && report_num === 0) {
+                    this.output = 'Please type in REPORT.';
+                    break;
                 }
             }
         }

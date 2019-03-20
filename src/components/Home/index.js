@@ -21,6 +21,7 @@ function Home({ rootStore }) {
                 <textarea
                     rows="10"
                     cols="30"
+                    data-testid="test_textarea"
                     name="position"
                     styleName="input"
                     onChange={updateProperty}

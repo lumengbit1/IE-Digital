@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Test case: expect rendering correct 1`] = `
+<div>
+  <div
+    class="homePage"
+  >
+    <div
+      class="block"
+    >
+      <textarea
+        class="input"
+        cols="30"
+        data-testid="test_textarea"
+        name="position"
+        rows="10"
+      />
+      <p />
+      <div
+        class="button"
+      >
+        <button>
+          Start
+        </button>
+        <button>
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
